@@ -2,8 +2,10 @@
 #include "PID.h"
 #include "imu.h"
 #include "q6623.h"
-
+#include "IOTask.h"
+#include "bsp_uart.h"
 #define offset_pitch -2
+
 
 PID_Regulator_t GMPPositionPID = GIMBAL_MOTOR_PITCH_POSITION_PID_DEFAULT;
 PID_Regulator_t GMPSpeedPID = GIMBAL_MOTOR_PITCH_SPEED_PID_DEFAULT;
@@ -86,10 +88,10 @@ void GMCalLoop(PIDMode_Enum PIDMode)
 	//	#if (XDRM_CONVERTER == 0)
 		//PID_Task(&GMYPositionPID, GimbalRef.Yaw, yaw_angle);
 		PID_Task(&GMYPositionPID, GimbalRef.Yaw, GMYawEncoder.ecd_angle*70/55);
-		PID_Task(&GMYSpeedPID, GMYPositionPID.output, MPU6050_Real_Data.Gyro_Z);
+		PID_Task(&GMYSpeedPID, GMYPositionPID.output, -MPU6050_Real_Data.Gyro_Z);
 
 		PID_Task(&GMPPositionPID, -GimbalRef.Pitch, GMPitchEncoder.ecd_angle);
-		PID_Task(&GMPSpeedPID, GMPPositionPID.output, MPU6050_Real_Data.Gyro_Y);
+		PID_Task(&GMPSpeedPID, -GMPPositionPID.output, MPU6050_Real_Data.Gyro_Y);
 //		PID_Task(&GMYPositionPID, GimbalRef.Yaw, yaw_angle);
 //		PID_Task(&GMYSpeedPID, GMYPositionPID.output, MPU6050_Real_Data.Gyro_Z);
 
@@ -140,15 +142,16 @@ void GMCalLoop(PIDMode_Enum PIDMode)
 void SetGimbalMotorOutput(void)
 {
 	//ÔÆÌ¨¿ØÖÆÊä³ö
-//	if (GMPitchEncoder.ecd_value==90)
-//	{
-//		gimbal_send( 0, 0); //yaw + pitch
+	if (rc.sw2==2)
+	{
+		gimbal_send( 0, 0); //yaw + pitch
 //		HAL_Delay(1000);
-//	}
-//	else
-//	{
+	}
+	else
+	{
 	//gimbal_send(0,0);
-	//	gimbal_send( (int16_t)GMYSpeedPID.output, -(int16_t)GMPSpeedPID.output); //
-	gimbal_send( 0,  0);
-//	}
+		gimbal_send( -(int16_t)GMYSpeedPID.output, (int16_t)GMPSpeedPID.output); //
+	//gimbal_send( 0, (int16_t)GMPSpeedPID.output);
+	//gimbal_send( -(int16_t)GMYSpeedPID.output,0);
+	}
 }

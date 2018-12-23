@@ -36,3 +36,5 @@ gimbal\gimbal.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 gimbal\gimbal.o: ..\guard\PID.h
 gimbal\gimbal.o: ..\guard\imu.h
 gimbal\gimbal.o: ..\guard\q6623.h
+gimbal\gimbal.o: ..\guard\IOTask.h
+gimbal\gimbal.o: ..\guard\bsp_uart.h

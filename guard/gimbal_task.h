@@ -6,3 +6,4 @@
 
 void Gimbal_control();
 void Ref_UpdataFromRCStick(void);
+void Ref_Gimbal_Prepare(void);

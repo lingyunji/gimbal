@@ -65,9 +65,8 @@ void rc_callback_handler(rc_info_t *rc,uint8_t *buff)
   
   if ((abs(rc->ch1) > 660) || \
       (abs(rc->ch2) > 660) || \
-      (abs(rc->ch4) >120) || \
-       (abs(rc->ch4)<-150)|| 
-	    (abs(rc->ch3) < 100)||(abs(rc->ch3)>-100))
+      (abs(rc->ch4) >200) || \
+	    (abs(rc->ch3)>300))
   {
     memset(rc, 0, sizeof(rc_info_t));
   }		
@@ -84,7 +83,7 @@ static void uart_rx_idle_callback(UART_HandleTypeDef *huart)
 		if((DBUS_MAX_LEN-dma_current_data_counter (huart ->hdmarx->Instance))==DBUS_BUFLEN )
 		{
 			
-			rc_callback_handler (&rc,dbus_buf );
+			rc_callback_handler (&rc,dbus_buf);
 			
 		}
 		

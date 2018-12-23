@@ -45,12 +45,6 @@ typedef enum
 	GMAutoDefence,
 }Gimbal_AutoMode_t;
 
-typedef __packed struct
-{
-	float yaw;
-	float pitch;
-}CameraOffset_t;
-
 
 void Gimbal_YawAngleSet(float Target, AngleMode_Enum mode);
 void Gimbal_PitchAngleSet(float Target, AngleMode_Enum mode);

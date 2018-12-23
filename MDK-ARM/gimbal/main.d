@@ -46,3 +46,4 @@ gimbal\main.o: ..\guard\gimbal.h
 gimbal\main.o: ..\guard\gimbal_task.h
 gimbal\main.o: ..\guard\minipc.h
 gimbal\main.o: ..\guard\BSP_Data.h
+gimbal\main.o: ..\guard\IOTask.h

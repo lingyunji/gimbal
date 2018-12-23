@@ -55,6 +55,7 @@
 #include "gimbal.h"
 #include "gimbal_task.h"
 #include "minipc.h"
+#include "IOTask.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -130,8 +131,9 @@ int main(void)
 	mpu_device_init();
 	init_quaternion();	
   __HAL_CAN_ENABLE_IT(&hcan1,((uint32_t) CAN_IER_FMPIE0));
-	Motor_Init();
-	
+	 AppParamInit();
+	 Motor_Init();
+	 Ref_Gimbal_Prepare();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -142,6 +144,7 @@ int main(void)
   /* USER CODE END WHILE */
 		//if(rc.sw1==1)
     //{
+		
 			if(gimbal_time==1)
 		 {
 		 imu_run();
@@ -232,13 +235,13 @@ static void MX_NVIC_Init(void)
   HAL_NVIC_SetPriority(CAN1_TX_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(CAN1_TX_IRQn);
   /* CAN1_RX0_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(CAN1_RX0_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(CAN1_RX0_IRQn, 1, 1);
   HAL_NVIC_EnableIRQ(CAN1_RX0_IRQn);
   /* USART1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(USART1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(USART1_IRQn);
   /* USART6_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(USART6_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(USART6_IRQn, 0, 1);
   HAL_NVIC_EnableIRQ(USART6_IRQn);
 }
 

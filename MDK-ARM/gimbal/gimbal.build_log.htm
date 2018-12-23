@@ -27,34 +27,8 @@ Project File Date:  12/10/2018
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 4 (build 422)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'gimbal'
-compiling bsp_uart.c...
-..\guard\minipc.h(31): warning:  #1-D: last line of file ends without a newline
-  extern MiniPC_Res MiniPC_Data;
-..\guard\bsp_uart.c(129): warning:  #1-D: last line of file ends without a newline
-  }
-..\guard\bsp_uart.c: 2 warnings, 0 errors
-compiling stm32f4xx_it.c...
-..\guard\minipc.h(31): warning:  #1-D: last line of file ends without a newline
-  extern MiniPC_Res MiniPC_Data;
-../Src/stm32f4xx_it.c: 1 warning, 0 errors
-compiling minipc.c...
-..\guard\minipc.h(31): warning:  #1-D: last line of file ends without a newline
-  extern MiniPC_Res MiniPC_Data;
-..\guard\imu.h(218): warning:  #1295-D: Deprecated declaration get_pitchyaw - give arg types
-  void get_pitchyaw();
-..\guard\angle.h(25): warning:  #1-D: last line of file ends without a newline
-  extern float Angle_Process(float angle);
-..\guard\q6623.h(32): warning:  #1295-D: Deprecated declaration Motor_CAN_Send - give arg types
-  void Motor_CAN_Send();
-..\guard\q6623.h(41): warning:  #1-D: last line of file ends without a newline
-  void GetEncoderBias(volatile Encoder *v, uint8_t *msg);
-..\guard\minipc.c: 5 warnings, 0 errors
-compiling gimbal_task.c...
-..\guard\gimbal_task.h(7): warning:  #1295-D: Deprecated declaration Gimbal_control - give arg types
-  void Gimbal_control();
-..\guard\gimbal_task.h(8): warning:  #1-D: last line of file ends without a newline
-  void Ref_UpdataFromRCStick(void);
-..\guard\gimbal.h(58): warning:  #1295-D: Deprecated declaration SetGimbalMotorOutput - give arg types
+compiling gimbal.c...
+..\guard\gimbal.h(52): warning:  #1295-D: Deprecated declaration SetGimbalMotorOutput - give arg types
   void SetGimbalMotorOutput();
 ..\guard\imu.h(218): warning:  #1295-D: Deprecated declaration get_pitchyaw - give arg types
   void get_pitchyaw();
@@ -62,35 +36,13 @@ compiling gimbal_task.c...
   void Motor_CAN_Send();
 ..\guard\q6623.h(41): warning:  #1-D: last line of file ends without a newline
   void GetEncoderBias(volatile Encoder *v, uint8_t *msg);
-..\guard\angle.h(25): warning:  #1-D: last line of file ends without a newline
-  extern float Angle_Process(float angle);
-..\guard\minipc.h(31): warning:  #1-D: last line of file ends without a newline
-  extern MiniPC_Res MiniPC_Data;
-..\guard\gimbal_task.c(56): warning:  #1-D: last line of file ends without a newline
+..\guard\gimbal.c(157): warning:  #1-D: last line of file ends without a newline
   }
-..\guard\gimbal_task.c(21): warning:  #177-D: function "Ref_Gimbal_Prepare"  was declared but never referenced
-  static void Ref_Gimbal_Prepare(void)
-..\guard\gimbal_task.c: 10 warnings, 0 errors
-compiling main.c...
-..\guard\q6623.h(32): warning:  #1295-D: Deprecated declaration Motor_CAN_Send - give arg types
-  void Motor_CAN_Send();
-..\guard\q6623.h(41): warning:  #1-D: last line of file ends without a newline
-  void GetEncoderBias(volatile Encoder *v, uint8_t *msg);
-..\guard\imu.h(218): warning:  #1295-D: Deprecated declaration get_pitchyaw - give arg types
-  void get_pitchyaw();
-..\guard\gimbal.h(58): warning:  #1295-D: Deprecated declaration SetGimbalMotorOutput - give arg types
-  void SetGimbalMotorOutput();
-..\guard\gimbal_task.h(7): warning:  #1295-D: Deprecated declaration Gimbal_control - give arg types
-  void Gimbal_control();
-..\guard\gimbal_task.h(8): warning:  #1-D: last line of file ends without a newline
-  void Ref_UpdataFromRCStick(void);
-..\guard\minipc.h(31): warning:  #1-D: last line of file ends without a newline
-  extern MiniPC_Res MiniPC_Data;
-../Src/main.c: 7 warnings, 0 errors
+..\guard\gimbal.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=22084 RO-data=756 RW-data=544 ZI-data=3968  
+Program Size: Code=26092 RO-data=892 RW-data=616 ZI-data=3984  
 FromELF: creating hex file...
-"gimbal\gimbal.axf" - 0 Error(s), 25 Warning(s).
+"gimbal\gimbal.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -108,7 +60,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.0
-Build Time Elapsed:  00:00:11
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

@@ -18,11 +18,13 @@ extern Gimbal_Ref_t GimbalRef;
 Smooth_t GMYawSmooth=SMOOTH_GMINIT;
 Smooth_t GMPitchSmooth=SMOOTH_GMINIT;
 
-static void Ref_Gimbal_Prepare(void)
+void Ref_Gimbal_Prepare(void)
 {
 	Gimbal_PitchAngleSet(-GMPitchEncoder.ecd_angle , AngleMode_REL);
 	Gimbal_YawAngleSet(SmoothSigmoid(Angle_Optimize(-GMYawEncoder.ecd_angle,0),2000,&GMYawSmooth), AngleMode_REL);
   GMCalLoop(PID_POSITION);
+	gimbal_send( 0,0);
+	//gimbal_send( -(int16_t)GMYSpeedPID.output,0);
 }
 
 

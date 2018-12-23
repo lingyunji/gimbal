@@ -1,18 +1,18 @@
 #include "stm32f4xx_hal.h"
 
-#define YAW_POSITION_KP_DEFAULTS  15
+#define YAW_POSITION_KP_DEFAULTS  8    //15
 #define YAW_POSITION_KI_DEFAULTS  0
 #define YAW_POSITION_KD_DEFAULTS  0
 
-#define YAW_SPEED_KP_DEFAULTS  10          //  17
-#define YAW_SPEED_KI_DEFAULTS  0.01
-#define YAW_SPEED_KD_DEFAULTS  15
+#define YAW_SPEED_KP_DEFAULTS   10   //10          //  17
+#define YAW_SPEED_KI_DEFAULTS  0          //0.01
+#define YAW_SPEED_KD_DEFAULTS  0          //15
 
-#define PITCH_POSITION_KP_DEFAULTS  6      //13.0        //15
-#define PITCH_POSITION_KI_DEFAULTS  0.005
-#define PITCH_POSITION_KD_DEFAULTS  10
+#define PITCH_POSITION_KP_DEFAULTS  15        //6      //13.0        //15
+#define PITCH_POSITION_KI_DEFAULTS  0.02        //0.005
+#define PITCH_POSITION_KD_DEFAULTS   5     //10
 
-#define PITCH_SPEED_KP_DEFAULTS  10.0	//6
+#define PITCH_SPEED_KP_DEFAULTS  20    //10.0	//6
 #define PITCH_SPEED_KI_DEFAULTS  0
 #define PITCH_SPEED_KD_DEFAULTS  0
 

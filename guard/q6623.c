@@ -127,7 +127,7 @@ uint8_t pitch_count(void)
 }
 void GetEncoderBias(volatile Encoder *v, uint8_t *msg)
 {
-
+  
 	v->ecd_bias = (msg[0] << 8) | msg[1]; //保存初始编码器值作为偏差
 	v->ecd_value = v->ecd_bias;
 	v->last_raw_value = v->ecd_bias;
@@ -194,5 +194,6 @@ void Motor_Init(void)
 	
 	HAL_GPIO_TogglePin(GPIOF,GPIO_PIN_14);
 	GetEncoderBias(&GMPitchEncoder,pitch);
+	GetEncoderBias(&GMYawEncoder,yaw);
   Sensor_Offset_Param_Init(&gAppParamStruct);
 }

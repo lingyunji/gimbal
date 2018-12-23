@@ -9,6 +9,7 @@
 #define LOST_ERROR_IMU									1u		//mpu6050 error
 #define GIMBAL_BIAS_YAW  	7530//3400//1510//1510			//633
 #define GIMBAL_BIAS_PITCH 	 7042//3180//6880			//4391
+#define GimbalOffset_From	1
 uint32_t lost_err = 0;     //每一位代表一个错误
 
 void GetGimbalCaliData(GimbalCaliStruct_t *cali_data);
